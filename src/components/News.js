@@ -50,14 +50,14 @@ export class News extends Component {
 	render() {
 		return (
 			<div className='container my-3'>
-				<h1 className='text-center' style={{ fontSize: '420%' }}>
+				<h1 className='text-center' style={{ fontSize: '6rem' }}>
 					News-Bytes Daily Top headlines
 				</h1>
 				<div className='container d-flex justify-content-between'>
-					<button type='button' className='btn btn-info btn-lg' onClick={this.handlePrevClick}>
+					<button disabled={this.state.page <= 1} type='button' className='btn btn-info btn-lg' onClick={this.handlePrevClick}>
 						&larr; Previous
 					</button>
-					<button type='button' className='btn btn-info btn-lg' onClick={this.handleNextClick}>
+					<button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 20)} type='button' className='btn btn-info btn-lg' onClick={this.handleNextClick}>
 						Next &rarr;
 					</button>
 				</div>
@@ -76,10 +76,10 @@ export class News extends Component {
 					})}
 				</div>
 				<div className='container d-flex justify-content-between'>
-					<button type='button' className='btn btn-dark btn-lg' onClick={this.handlePrevClick}>
+					<button disabled={this.state.page <= 1} type='button' className='btn btn-dark btn-lg' onClick={this.handlePrevClick}>
 						&larr; Previous
 					</button>
-					<button type='button' className='btn btn-dark btn-lg' onClick={this.handleNextClick}>
+					<button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 20)} type='button' className='btn btn-dark btn-lg' onClick={this.handleNextClick}>
 						Next &rarr;
 					</button>
 				</div>
