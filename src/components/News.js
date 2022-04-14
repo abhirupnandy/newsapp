@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NewsItem from './NewsItem';
 
 export class News extends Component {
-	arttcles = [
+	articles = [
 		{
 			source: {
 				id: 'newsweek',
@@ -88,16 +88,17 @@ export class News extends Component {
 		return (
 			<div className='container my-3'>
 				<h2>News-Bytes Daily Top headlines</h2>
+				{/* {this.state.articles.map((element) => {
+					console.log(element);
+				})} */}
 				<div className='row'>
-					<div className='col-md-4'>
-						<NewsItem title='myTitle' description='Hello' imageUrl='https://d.newsweek.com/en/full/2011150/bremerton-high-school-football-coach-joe-kennedy.jpg' newsUrl='TODO' />
-					</div>
-					<div className='col-md-4'>
-						<NewsItem title='myTitle' description='Hello' />
-					</div>
-					<div className='col-md-4'>
-						<NewsItem title='myTitle' description='Hello' />
-					</div>
+					{this.state.articles.map((element) => {
+						return (
+							<div className='col-md-4' key={element.url}>
+								<NewsItem title={element.title.slice(0, 40)} description={element.description.slice(0, 80)} imageUrl={element.urlToImage} newsUrl={element.url} />
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		);
